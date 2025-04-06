@@ -1,0 +1,13 @@
+#memory{
+    background-color: black;
+    width: 700px;
+    height: 970px;
+    margin: auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(4,160px);
+    grid-gap: 20px;
+}
+img{
+    width: 100%;
+}
