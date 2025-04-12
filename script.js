@@ -1,6 +1,4 @@
-let pic = document.getElementById('test');
+// Noms des Binômes : Mohamed Talhaoui & Fatima Boumsahi
+// Filière : Informatique et IA (S4) | 2024/2025 
 
-
-pic.addEventListener('click', function(e){
-    pic.src = 'q1.jpg'
-});
+// Pas Encore...

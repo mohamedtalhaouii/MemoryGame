@@ -1,0 +1,206 @@
+/* 
+Noms des Binômes : Mohamed Talhaoui & Fatima Boumsahi
+Filière : Informatique et IA (S4) | 2024/2025 
+*/
+:root { /* Pour eviter la repetition ;) */ 
+    --yellow : #F7DF1E;
+    --gray: #F2F2F7;
+    --dark-gray: #8E8E93;
+    --card-bg: #FFFFFF;
+    --green: #34C759;
+    --red: #FF3B30;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    --card-radius: 12px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--gray);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.app-header {
+    text-align: center;
+    padding: 0 20px;
+}
+
+h1 {
+    color: #000;
+    font-weight: 600;
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    color: var(--dark-gray);
+    font-size: 16px;
+}
+
+.game-container {
+    background-color: var(--card-bg);
+    border-radius: var(--card-radius);
+    width: 100%;
+    padding: 20px;
+    box-shadow: var(--shadow);
+}
+
+.game-info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px;
+    background-color: var(--gray);
+    padding: 12px 16px;
+    border-radius: var(--card-radius);
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.info-label {
+    font-size: 14px;
+    color: var(--dark-gray);
+    margin-bottom: 4px;
+}
+
+.info-value {
+    font-size: 18px;
+    font-weight: 600;
+    color: #000;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    width: 100%;
+    min-height: 300px;
+}
+
+.card {
+    width: 100%;
+    aspect-ratio: 1;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    cursor: pointer;
+    border-radius: var(--card-radius);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.card:active {
+    transform: scale(0.90);
+}
+
+.card-face {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--card-radius);
+    padding: 12px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 500;
+    word-break: break-word;
+}
+
+.card-front {
+    background-color: var(--yellow );
+    color: rgb(0, 0, 0);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.difficulty-selector {
+    width: 100%;
+}
+
+select {
+    width: 100%;
+    padding: 12px;
+    border-radius: var(--card-radius);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: var(--card-bg);
+    font-size: 16px;
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+}
+
+button {
+    background-color: var(--yellow );
+    color: #000000;
+    border: none;
+    padding: 14px;
+    border-radius: var(--card-radius);
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 500;
+    width: 100%;
+    transition: all 0.2s;
+}
+
+button:hover {
+    background-color: #e6cc1b;
+}
+
+button:active {
+    background-color: #cbb919;
+    transform: scale(0.98);
+}
+
+footer {
+    text-align: center;
+    padding: 15px 0;
+    color: var(--dark-gray);
+    font-size: 14px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+}
+
+a{
+    color: var(--dark-gray);
+    text-decoration: none;
+}
+
+a:hover{
+    color: var(--yellow);
+}
+
+@media (min-width: 500px) {
+    .game-board {
+        min-height: 200px;
+    }
+}

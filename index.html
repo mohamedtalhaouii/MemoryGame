@@ -1,32 +1,74 @@
+<!--
+Noms des Binômes : Mohamed Talhaoui & Fatima Boumsahi
+Filière : Informatique et IA (S4) | 2024/2025
+-->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Jeu de mémoire JavaScript</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="/Images/logo-js.svg" rel="shortcut icon"/>
 </head>
-<link rel="stylesheet" href="stzle.css">
 <body>
-    <h1>Memory Game ;) </h1>
-    <div id="memory">
-        <img src="Untitled design.jpg" id="test">
-        <img src="Untitled design.jpg">
-        <img src="Untitled design.jpg">
-        <img src="Untitled design.jpg">
-        <img src="Untitled design.jpg">
-        <img src="Untitled design.jpg">
-        <img src="Untitled design.jpg">
-        <img src="Untitled design.jpg">
+    <div class="app-container">
+        <header class="app-header">
+            <h1>Jeu de mémoire JavaScript</h1>
+            <p class="subtitle">Associez les commandes à leurs définitions</p>
+        </header>
 
-        <img src="Untitled design.jpg">
-        <img src="Untitled design.jpg">
-        <img src="Untitled design.jpg">
-        <img src="Untitled design.jpg">
-        <img src="Untitled design.jpg">
-        <img src="Untitled design.jpg">
-        <img src="Untitled design.jpg">
-        <img src="Untitled design.jpg">
+        <main class="game-container">
+            <div class="game-info">
+                <div class="info-item">
+                    <span class="info-label">Moves</span>
+                    <span class="info-value" id="moves">0</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Matches</span>
+                    <span class="info-value"><span id="matches">0</span>/<span id="total-pairs">6</span></span>
+                </div>
+            </div>
+            
+            <div class="game-board" id="game-board">
+                <div class="card">
+                    <div class="card-face card-front">JS</div>
+                </div>
+                <div class="card">
+                    <div class="card-face card-front">JS</div>
+                </div>
+                <div class="card">
+                    <div class="card-face card-front">JS</div>
+                </div>
+                <div class="card">
+                    <div class="card-face card-front">JS</div>
+                </div>
+                <div class="card">
+                    <div class="card-face card-front">JS</div>
+                </div>
+                <div class="card">
+                    <div class="card-face card-front">JS</div>
+                </div>
+            </div>
+        </main>
+
+        <div class="controls">
+            <div class="difficulty-selector">
+                <select id="difficulty">
+                    <option value="6">Facile (6 paires)</option>
+                    <option value="8">Moyen (8 paires)</option>
+                    <option value="12">Difficile (12 paires)</option>
+                </select>
+            </div>
+            <button id="reset-btn">New Game</button>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 | <a href="https://www.linkedin.com/in/mohamedtalhaoui">Mohamed Talhaoui</a> & Fatima Boumsahi. Tous droits réservés.</p>
+        </footer>
     </div>
-    <script src="script.js"></script>
+
+    <!-- JavaScript anzidoha mnba3d -->
+    <!-- <script src="script.js"></script> -->
 </body>
 </html>
