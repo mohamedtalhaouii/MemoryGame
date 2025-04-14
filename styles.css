@@ -30,7 +30,7 @@ body {
     -webkit-tap-highlight-color: transparent;
 }
 
-.app-container {
+.container {
     width: 100%;
     max-width: 500px;
     display: flex;
@@ -38,7 +38,7 @@ body {
     gap: 20px;
 }
 
-.app-header {
+header {
     text-align: center;
     padding: 0 20px;
 }
