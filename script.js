@@ -13,6 +13,8 @@ difficulty.onchange = function(){
     for (let i = 0; i < difficulty.options.length; i++) {
         if (difficulty.options[i].selected) {
             totalPairs.textContent = difficulty.options[i].value;
+            // Set number of moves to 0 for new start
+            moves.textContent = 0;
             // change template of grid
             gameBoard.style.cssText = `
                 grid-template-columns: repeat(${(difficulty.options[i].value)/2}, 1fr);
