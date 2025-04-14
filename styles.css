@@ -159,6 +159,10 @@ select {
     background-size: 16px;
 }
 
+select:focus{
+    outline: none;
+}
+
 button {
     background-color: var(--yellow );
     color: #000000;
