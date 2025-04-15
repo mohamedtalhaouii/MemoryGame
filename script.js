@@ -37,7 +37,7 @@ for (let i = 0; i < cards.length; i++) {
             opacity: 1;
         `;
         sessionStorage.setItem(`Card ${i}`, cards[i].style.cssText);
-        sessionStorage.setItem(`Card Front ${i}`, "visibility: hidden; opacity: 0");
+        sessionStorage.setItem(`Card Front ${i}`, cards[i].children[0].style.cssText);
         sessionStorage.setItem(`Card Back ${i}`, cards[i].children[1].style.cssText);
     })
     cards[i].style.cssText = sessionStorage.getItem(`Card ${i}`);
