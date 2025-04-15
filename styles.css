@@ -127,17 +127,25 @@ h1 {
     font-size: 15px;
     font-weight: 500;
     word-break: break-word;
+    backface-visibility: hidden;
 }
 
 .card-front {
+    visibility: visible;
+    opacity: 1;
     background-color: var(--yellow );
     color: rgb(0, 0, 0);
     border: 1px solid rgba(0, 0, 0, 0.05);
+    transform: rotateY(0deg);
 }
 
 .card-back {
-    display: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear;
     background-color: var(--card-bg);
+    border: 2px solid rgba(0, 0, 0, 0.05);
+    transform: rotateY(180deg);
 }
 
 .controls {
