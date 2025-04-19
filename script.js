@@ -8,39 +8,39 @@ let gameBoard = document.querySelector(".game-board");
 let resetBtn = document.querySelector("#reset-btn");
 
 const facile = [
-    { command: "console.log()", reponse: "Affiche dans la console." },
-    { command: "let", reponse: "Déclare une variable." },
-    { command: "typeof", reponse: "Renvoie le type de la variable." },
-    { command: "length", reponse: "Renvoie la longueur d'une chaîne ou d'un tableau." },
-    { command: "[]", reponse: "Crée un tableau." },
-    { command: "Boolean()", reponse: "Convertit en booléen." },
-    { command: "+", reponse: "Concatène des chaînes." },
-    { command: "-", reponse: "Effectue une soustraction." },
-    { command: "==", reponse: "Compare l'égalité de valeurs." }
+    { command: "console.log()", reponse: "Affiche dans la console" },
+    { command: "let", reponse: "Déclare une variable" },
+    { command: "typeof", reponse: "Renvoie le type de la variable" },
+    { command: "length", reponse: "Renvoie la longueur d'une chaîne ou d'un tableau" },
+    { command: "[]", reponse: "Crée un tableau" },
+    { command: "Boolean()", reponse: "Convertit en booléen" },
+    { command: "+", reponse: "Concatène des chaînes" },
+    { command: "-", reponse: "Effectue une soustraction" },
+    { command: "==", reponse: "Compare l'égalité de valeurs" }
 ];
   
 const intermediaire = [
-    { command: "map()", reponse: "Applique une fonction à chaque élément." },
-    { command: "split()", reponse: "Divise une chaîne en tableau." },
-    { command: "in", reponse: "Vérifie l'existence d'une clé dans un objet." },
-    { command: "Set", reponse: "Crée un ensemble unique." },
-    { command: "filter()", reponse: "Filtre les éléments d'un tableau." },
-    { command: "Math.max()", reponse: "Renvoie le plus grand nombre." },
-    { command: "!!", reponse: "Convertit en booléen." },
-    { command: "charAt()", reponse: "Renvoie un caractère à un index." },
-    { command: "+=", reponse: "Ajoute et affecte à la variable." }
+    { command: "map()", reponse: "Applique une fonction à chaque élément" },
+    { command: "split()", reponse: "Divise une chaîne en tableau" },
+    { command: "in", reponse: "Vérifie l'existence d'une clé dans un objet" },
+    { command: "Set", reponse: "Crée un ensemble unique" },
+    { command: "filter()", reponse: "Filtre les éléments d'un tableau" },
+    { command: "Math.max()", reponse: "Renvoie le plus grand nombre" },
+    { command: "!!", reponse: "Convertit en booléen" },
+    { command: "charAt()", reponse: "Renvoie un caractère à un index" },
+    { command: "+=", reponse: "Ajoute et affecte à la variable" }
 ];
   
 const difficile = [
-    { command: "... (spread/rest)", reponse: "Décompose en éléments individuels." },
-    { command: "()=>{}", reponse: "Crée une fonction fléchée." },
-    { command: "Promise", reponse: "Représente une valeur future." },
-    { command: "reduce()", reponse: "Réduit un tableau à une valeur." },
-    { command: "Destructuration", reponse: "Extrait des valeurs d'objets ou tableaux." },
-    { command: "`template literals`", reponse: "Crée des chaînes avec interpolation." },
-    { command: "find()", reponse: "Trouve le premier élément correspondant." },
-    { command: "let [a, , b]", reponse: "Déstructure un tableau." },
-    { command: "function*", reponse: "Crée une fonction génératrice." }
+    { command: "... (spread/rest)", reponse: "Décompose en éléments individuels" },
+    { command: "()=>{}", reponse: "Crée une fonction fléchée" },
+    { command: "Promise", reponse: "Représente une valeur future" },
+    { command: "reduce()", reponse: "Réduit un tableau à une valeur" },
+    { command: "Destructuration", reponse: "Extrait des valeurs d'objets ou tableaux" },
+    { command: "`template literals`", reponse: "Crée des chaînes avec interpolation" },
+    { command: "find()", reponse: "Trouve le premier élément correspondant" },
+    { command: "let [a, , b]", reponse: "Déstructure un tableau" },
+    { command: "function*", reponse: "Crée une fonction génératrice" }
 ];
   
 
