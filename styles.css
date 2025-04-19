@@ -66,7 +66,7 @@ body {
     background-color: #F7DF1E;
     color: #000;
     padding: 15px 25px;
-    font-size: 25px;
+    font-size: 18px;
     font-weight: 600;
     text-align: center;
     border-radius: 20px;
@@ -183,7 +183,6 @@ body {
 .no-clicking{
     pointer-events: none;
 }
-
 
 .card.is-flipped,
 .card.is-matched {
