@@ -244,8 +244,9 @@ a:hover{
     color: var(--yellow);
 }
 
-@media (min-width: 500px) {
+@media (max-width: 700px) {
     .game-board {
-        min-height: 200px;
+        grid-template-columns: repeat(3, 1fr);
+        min-height: 700px;
     }
 }
