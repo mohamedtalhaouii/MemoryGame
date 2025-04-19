@@ -163,6 +163,7 @@ body {
 
 .card-front::before {
     content: 'JS';
+    font-weight: 700;
 }
 
 .card-front {
@@ -266,8 +267,11 @@ a:hover{
 }
 
 @media (max-width: 450px) {
+    body{
+        padding: 0;
+    }
     .game-board {
         grid-template-columns: repeat(3, 1fr);
-        min-height: 250px;
+        min-height: 300px;
     }
 }
