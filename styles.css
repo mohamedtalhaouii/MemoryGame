@@ -268,6 +268,6 @@ a:hover{
 @media (max-width: 450px) {
     .game-board {
         grid-template-columns: repeat(3, 1fr);
-        min-height: 200px;
+        min-height: 250px;
     }
 }
