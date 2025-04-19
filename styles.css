@@ -85,6 +85,7 @@ body {
     gap: 15px;
 }
 
+
 .game-container {
     background-color: var(--card-bg);
     border-radius: var(--card-radius);
@@ -175,6 +176,19 @@ body {
     border: 2px solid rgba(0, 0, 0, 0.05);
     transform: rotateY(180deg);
 }
+
+/* Bach nwa9fo clicks */
+.no-clicking{
+    pointer-events: none;
+}
+
+
+.card.is-flipped,
+.card.is-matched {
+  transform: rotateY(180deg);
+  pointer-events: none;
+}
+
 
 .controls {
     display: flex;
