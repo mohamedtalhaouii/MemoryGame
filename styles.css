@@ -272,7 +272,7 @@ a:hover{
         padding: 0;
     }
     .card-face {
-        font-size: 10px;
+        font-size: 12px;
     }
     .game-board {
         grid-template-columns: repeat(3, 1fr);
