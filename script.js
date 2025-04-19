@@ -7,19 +7,30 @@ let difficulty = document.querySelector("#difficulty");
 let gameBoard = document.querySelector(".game-board");
 let resetBtn = document.querySelector("#reset-btn");
 
+// Start Screen
+document.querySelector(".start-btn span").onclick = function(){
+    document.querySelector(".start-btn").remove();
+}
+
+gameBoardSetup();
+
 // Niveau de difficulte
 difficulty.onchange = function(){
     for (let i = 0; i < difficulty.options.length; i++) {
         if (difficulty.options[i].selected) {
-            totalPairs.textContent = difficulty.options[i].value;
             resetAll();
-            // change template of grid
-            gameBoard.style.cssText = `
-                grid-template-columns: repeat(${(difficulty.options[i].value)/2}, 1fr);
-            `;
+            gameBoardSetup();
         }
     }
 };
+
+function gameBoardSetup() {
+    for (let i = 0; i < difficulty.options.length; i++) {
+        if (difficulty.options[i].selected) {
+            
+        }
+    }
+}
 
 // Rotation cardes effect
 for (let i = 0; i < cards.length; i++) {
@@ -27,22 +38,7 @@ for (let i = 0; i < cards.length; i++) {
         cards[i].style.cssText = `
             transform: rotateY(180deg);
         `;
-        cards[i].children[0].style.cssText = `
-            visibility: hidden;
-            opacity: 0;
-            transition: visibility 0s, opacity 0.5s linear;
-        `;
-        cards[i].children[1].style.cssText = `
-            visibility: visible;
-            opacity: 1;
-        `;
-        sessionStorage.setItem(`Card ${i}`, cards[i].style.cssText);
-        sessionStorage.setItem(`Card Front ${i}`, cards[i].children[0].style.cssText);
-        sessionStorage.setItem(`Card Back ${i}`, cards[i].children[1].style.cssText);
     })
-    cards[i].style.cssText = sessionStorage.getItem(`Card ${i}`);
-    cards[i].children[0].style.cssText = sessionStorage.getItem(`Card Front ${i}`);
-    cards[i].children[1].style.cssText = sessionStorage.getItem(`Card Back ${i}`);
 }
 
 
@@ -69,15 +65,6 @@ function resetAll(){
     for (let i = 0; i < cards.length; i++) {
         cards[i].style.cssText = `
             transform: rotateY(0);
-        `;
-        cards[i].children[0].style.cssText = `
-            visibility: visible;
-            opacity: 1;
-        `;
-        cards[i].children[1].style.cssText = `
-            visibility: hidden;
-            opacity: 0;
-            transition: visibility 0s, opacity 1s linear;
         `;
     }
 }

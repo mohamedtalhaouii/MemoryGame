@@ -12,12 +12,12 @@ Filière : Informatique et IA (S4) | 2024/2025
     <link href="/Images/logo-js.svg" rel="shortcut icon"/>
 </head>
 <body oncontextmenu="return false">
+    <div class="start-btn">
+        <h1>Jeu de Mémoire JavaScript</h1>
+        <p>Associez les commandes à leurs définitions</p>
+        <span>Start Game</span>
+    </div>
     <div class="container">
-        <header>
-            <h1>Jeu de mémoire JavaScript</h1>
-            <p class="subtitle">Associez les commandes à leurs définitions</p>
-        </header>
-
         <main class="game-container">
             <div class="game-info">
                 <div class="info-item">
@@ -26,35 +26,82 @@ Filière : Informatique et IA (S4) | 2024/2025
                 </div>
                 <div class="info-item">
                     <span class="info-label">Matchs</span>
-                    <span class="info-value"><span id="matches">0</span>/<span id="total-pairs">6</span></span>
+                    <span class="info-value"><span id="matches">0</span>/<span id="total-pairs">18</span></span>
                 </div>
             </div>
             
-            <!-- I add values to tags just to test check matches -->
             <div class="game-board" id="game-board">
                 <div class="card">
-                    <div class="card-face card-front">JS</div>
-                    <div class="card-face card-back" value="1">bla bla</div>
+                    <div class="card-face card-front"></div>
+                    <div class="card-face card-back">bla bla</div>
                 </div>
                 <div class="card">
-                    <div class="card-face card-front">JS</div>
-                    <div class="card-face card-back" value="1">bla bla</div>
+                    <div class="card-face card-front"></div>
+                    <div class="card-face card-back">bla bla</div>
                 </div>
                 <div class="card">
-                    <div class="card-face card-front">JS</div>
-                    <div class="card-face card-back" value="2">bla bla</div>
+                    <div class="card-face card-front"></div>
+                    <div class="card-face card-back">bla bla</div>
                 </div>
                 <div class="card">
-                    <div class="card-face card-front">JS</div>
-                    <div class="card-face card-back" value="2">bla bla</div>
+                    <div class="card-face card-front"></div>
+                    <div class="card-face card-back">bla bla</div>
                 </div>
                 <div class="card">
-                    <div class="card-face card-front">JS</div>
-                    <div class="card-face card-back" value="3">bla bla</div>
+                    <div class="card-face card-front"></div>
+                    <div class="card-face card-back">bla bla</div>
                 </div>
                 <div class="card">
-                    <div class="card-face card-front">JS</div>
-                    <div class="card-face card-back" value="3">bla bla</div>
+                    <div class="card-face card-front"></div>
+                    <div class="card-face card-back">bla bla</div>
+                </div>
+                <div class="card">
+                    <div class="card-face card-front"></div>
+                    <div class="card-face card-back">bla bla</div>
+                </div>
+                <div class="card">
+                    <div class="card-face card-front"></div>
+                    <div class="card-face card-back">bla bla</div>
+                </div>
+                <div class="card">
+                    <div class="card-face card-front"></div>
+                    <div class="card-face card-back">bla bla</div>
+                </div>
+                <div class="card">
+                    <div class="card-face card-front"></div>
+                    <div class="card-face card-back">bla bla</div>
+                </div>
+                <div class="card">
+                    <div class="card-face card-front"></div>
+                    <div class="card-face card-back">bla bla</div>
+                </div>
+                <div class="card">
+                    <div class="card-face card-front"></div>
+                    <div class="card-face card-back">bla bla</div>
+                </div>
+                <div class="card">
+                    <div class="card-face card-front"></div>
+                    <div class="card-face card-back">bla bla</div>
+                </div>
+                <div class="card">
+                    <div class="card-face card-front"></div>
+                    <div class="card-face card-back">bla bla</div>
+                </div>
+                <div class="card">
+                    <div class="card-face card-front"></div>
+                    <div class="card-face card-back">bla bla</div>
+                </div>
+                <div class="card">
+                    <div class="card-face card-front"></div>
+                    <div class="card-face card-back">bla bla</div>
+                </div>
+                <div class="card">
+                    <div class="card-face card-front"></div>
+                    <div class="card-face card-back">bla bla</div>
+                </div>
+                <div class="card">
+                    <div class="card-face card-front"></div>
+                    <div class="card-face card-back">bla bla</div>
                 </div>
             </div>
         </main>
@@ -62,9 +109,9 @@ Filière : Informatique et IA (S4) | 2024/2025
         <div class="controls">
             <div class="difficulty-selector">
                 <select id="difficulty">
-                    <option value="6">Facile (6 paires)</option>
-                    <option value="8">Moyen (8 paires)</option>
-                    <option value="12">Difficile (12 paires)</option>
+                    <option value="6">Facile</option>
+                    <option value="8">Moyen</option>
+                    <option value="12">Difficile</option>
                 </select>
             </div>
             <button id="reset-btn">Nouvelle Partie</button>
