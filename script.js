@@ -57,7 +57,7 @@ function flipAllCards(){
         cards.forEach(card => {
             card.style.transform = 'rotateY(180deg)';
         });
-    }, 300);
+    }, 500);
     setTimeout(() => {
         cards.forEach(card => {
             card.style.transform = 'rotateY(0deg)';
@@ -72,7 +72,10 @@ difficulty.onchange = function(){
     for (let i = 0; i < difficulty.options.length; i++) {
         if (difficulty.options[i].selected) {
             resetAll();
-            gameBoardSetup();
+            // ntsnaw ta it9albo les cartes 3ad n3amro les cartes
+            setTimeout(() => {
+                gameBoardSetup();
+            }, 100);
             flipAllCards();
         }
     }
