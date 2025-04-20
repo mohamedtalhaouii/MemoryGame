@@ -18,7 +18,7 @@ const facile = [
     { command: "-", reponse: "Effectue une soustraction" },
     { command: "==", reponse: "Compare l'égalité de valeurs" }
 ];
-  
+
 const intermediaire = [
     { command: "map()", reponse: "Applique une fonction à chaque élément" },
     { command: "split()", reponse: "Divise une chaîne en tableau" },
@@ -134,6 +134,7 @@ for (let i = 0; i < cards.length; i++) {
     cards[i].addEventListener("click", function(){
         cards[i].style.transform = 'rotateY(180deg)';
         flipedCard(cards[i]); // kolma clickina 3la chi carte n3iyto 3la had fonction
+        movesCount();
     })
 }
 
@@ -153,7 +154,7 @@ function flipedCard(selectedCard){
 
 
 function checkMatches(firstCard, secondCard){
-    movesCount();
+    totalPairs.textContent++;
     if (firstCard.children[1].getAttribute('value') === secondCard.children[1].getAttribute('value')) {
         // color dyal font aywli flabyad
         firstCard.children[1].style.color = '#F2F2F7';
