@@ -1,5 +1,5 @@
 let moves = document.querySelector("#moves");
-let totalPairs = document.querySelector("#total-pairs");
+let matches = document.querySelector("#matches");
 let cards = document.querySelectorAll(".card");
 let cardFront = document.querySelector(".card-front");
 let cardBack = document.querySelector(".card-back");
@@ -154,7 +154,7 @@ function flipedCard(selectedCard){
 
 
 function checkMatches(firstCard, secondCard){
-    totalPairs.textContent++;
+    matches.textContent++;
     if (firstCard.children[1].getAttribute('value') === secondCard.children[1].getAttribute('value')) {
         // color dyal font aywli flabyad
         firstCard.children[1].style.color = '#F2F2F7';
