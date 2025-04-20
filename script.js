@@ -134,7 +134,6 @@ for (let i = 0; i < cards.length; i++) {
     cards[i].addEventListener("click", function(){
         cards[i].style.transform = 'rotateY(180deg)';
         flipedCard(cards[i]); // kolma clickina 3la chi carte n3iyto 3la had fonction
-        movesCount();
     })
 }
 
@@ -154,8 +153,9 @@ function flipedCard(selectedCard){
 
 
 function checkMatches(firstCard, secondCard){
-    matches.textContent++;
+    movesCount();
     if (firstCard.children[1].getAttribute('value') === secondCard.children[1].getAttribute('value')) {
+        matches.textContent++;
         // color dyal font aywli flabyad
         firstCard.children[1].style.color = '#F2F2F7';
         secondCard.children[1].style.color = '#F2F2F7';
