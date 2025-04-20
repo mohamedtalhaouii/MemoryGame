@@ -113,7 +113,6 @@ shuffleOrder(cards);
 
 function shuffleOrder(cards){
     let cardsOrder = Array.from(Array(cards.length).keys()); // on prend les indices de tableau cards
-    console.log(Array(cards.length).keys());
     shuffle(cardsOrder); // nkharb9o tartib dyal les cartes
 
     cards.forEach((card, i) => {
@@ -172,6 +171,8 @@ function checkMatches(firstCard, secondCard){
         firstCard.classList.add('is-matched');
         secondCard.classList.add('is-matched');
 
+        afficheResultat();
+
     } else {
         // fach fach maykonoch matchi matchi aywli fla7mer
         firstCard.children[1].style.backgroundColor = 'var(--red)';
@@ -205,7 +206,7 @@ function stopClicking(duration){
 // Nombres de Mouvements
 function movesCount(){
     moves.textContent++;
-    sessionStorage.setItem("Mouvements", moves.textContent);
+    document.querySelector("#moves-count").textContent = moves.textContent; // bach n2afichwha flakher
 }
 
 // Reset button
@@ -214,8 +215,6 @@ resetBtn.onclick = function() {
 }
 
 function resetAll(){
-    sessionStorage.clear();
-    moves.textContent = "0";
     for (let i = 0; i < cards.length; i++) {
         cards[i].style.transform = 'rotateY(0)';
         cards[i].children[1].style.backgroundColor = 'var(--card-bg)';
@@ -228,4 +227,24 @@ function resetAll(){
         shuffleOrder(cards);
         flipAllCards();
     }, 500);
+}
+
+// Rat dancing after finishing ;)
+let restartBtn = document.querySelector("#restart-btn");
+let music = new Audio('RatMusic.mp3');
+
+restartBtn.addEventListener("click", () => {
+    music.pause();
+    document.querySelector(".rat-dancing").style.display = 'none';
+    resetAll();
+})
+
+function afficheResultat(){
+    let isAllMatched = document.querySelectorAll(".card.is-matched");
+    if (isAllMatched.length == cards.length) {
+        setTimeout(() => {
+            music.play();
+            document.querySelector(".rat-dancing").style.display = 'inline';
+        }, 200);
+    }
 }
