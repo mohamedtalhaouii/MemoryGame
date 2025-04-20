@@ -57,7 +57,7 @@ function flipAllCards(){
         cards.forEach(card => {
             card.style.transform = 'rotateY(180deg)';
         });
-    }, 200);
+    }, 300);
     setTimeout(() => {
         cards.forEach(card => {
             card.style.transform = 'rotateY(0deg)';
@@ -105,16 +105,19 @@ function gameBoardSetup() {
     }
 }
 
-// Order 
-let cardsOrder = Array.from(Array(cards.length).keys());
+// Order dyal les catres
+shuffleOrder(cards);
 
-shuffle(cardsOrder); // nkharb9o tartib dyal les cartes
+function shuffleOrder(cards){
+    let cardsOrder = Array.from(Array(cards.length).keys()); // on prend les indices de tableau cards
+    console.log(Array(cards.length).keys());
+    shuffle(cardsOrder); // nkharb9o tartib dyal les cartes
 
-cards.forEach((card, i) => {
-    card.style.order = cardsOrder[i];
-});
-
-// shuffle function From StackOverFlow
+    cards.forEach((card, i) => {
+        card.style.order = cardsOrder[i];
+    });
+}
+// shuffle function khditha mn StackOverFlow :)
 function shuffle(array) {
     let currentIndex = array.length;
     while (currentIndex != 0) {
@@ -124,7 +127,6 @@ function shuffle(array) {
     }
 }
 
-
 // Rotation cardes effect
 for (let i = 0; i < cards.length; i++) {
     cards[i].addEventListener("click", function(){
@@ -133,14 +135,14 @@ for (let i = 0; i < cards.length; i++) {
     })
 }
 
-
+// had fonction katzid class jdid smito "is-flipped" kolma 9lbna chi carte
 function flipedCard(selectedCard){
     selectedCard.classList.add('is-flipped');
 
-    // nfiltriw les cartes li fihom (is-flipped)
+    // nfiltriw les cartes li fihom "is-flipped" (nakhdohom gha homa)
     let allSelectedCards = Array.from(cards).filter(selectedCard => selectedCard.classList.contains('is-flipped'));
-    /* console.log(allSelectedCards[0]); */
 
+    // nakhdo joj dyal les cartes
     if (allSelectedCards.length === 2) {
         checkMatches(allSelectedCards[0], allSelectedCards[1]);
         stopClicking(1000);
@@ -151,21 +153,28 @@ function flipedCard(selectedCard){
 function checkMatches(firstCard, secondCard){
     movesCount();
     if (firstCard.children[1].getAttribute('value') === secondCard.children[1].getAttribute('value')) {
+        // color dyal font aywli flabyad
         firstCard.children[1].style.color = '#F2F2F7';
         secondCard.children[1].style.color = '#F2F2F7';
 
+        // les cartes ghaywliw flakhder fach ghaytmatchaw
         firstCard.children[1].style.backgroundColor = 'var(--green)';
         secondCard.children[1].style.backgroundColor = 'var(--green)';
-
-        firstCard.classList.remove('is-flipped'); // n7aydo (is-flipped) hit mab9inach ghan7tajoha
+        
+        // n7aydo (is-flipped) hit mab9inach ghan7tajoha
+        firstCard.classList.remove('is-flipped');
         secondCard.classList.remove('is-flipped');
 
-        firstCard.classList.add('is-matched'); // nzido hadi bach nkhaliwha f ti9ar (sir chof f css oghatfhem)
+        // nzido hadi bach nkhaliwha f ti9ar (sir chof f css oghatfhem)
+        firstCard.classList.add('is-matched');
         secondCard.classList.add('is-matched');
+
     } else {
+        // fach fach maykonoch matchi matchi aywli fla7mer
         firstCard.children[1].style.backgroundColor = 'var(--red)';
         secondCard.children[1].style.backgroundColor = 'var(--red)';
 
+        // nsabro chwiya (1 second) onraj3o les cartes kikano
         setTimeout(() => {
             firstCard.style.transform = 'rotateY(0)';
             secondCard.style.transform = 'rotateY(0)';
@@ -206,5 +215,14 @@ function resetAll(){
     moves.textContent = "0";
     for (let i = 0; i < cards.length; i++) {
         cards[i].style.transform = 'rotateY(0)';
+        cards[i].children[1].style.backgroundColor = 'var(--card-bg)';
+        cards[i].children[1].style.color = '#000000';
+        cards[i].classList.remove('is-matched');
+        cards[i].classList.remove('is-flipped');
     }
+    setTimeout(() => {
+        // kolma 3wdna l'game nb9aw nkharb9o f les cartes o n9albo les cartes bach ichofhom siyed
+        shuffleOrder(cards);
+        flipAllCards();
+    }, 500);
 }
