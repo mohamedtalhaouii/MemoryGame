@@ -83,9 +83,6 @@ difficulty.onchange = function(){
 
 
 function gameBoardSetup() {
-    // Bach fach ndir refrech may3tilich lkhawi f blasa dyal Mouvements
-    sessionStorage.getItem("Mouvements") !== null ? moves.textContent = sessionStorage.getItem("Mouvements") : null;
-
     // N3amro les cartes dylna 3la hsab niveau li khtar siyed
     for (let i = 0; i < difficulty.options.length; i++) {
         if (difficulty.options[i].selected) {
