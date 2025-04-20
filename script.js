@@ -231,7 +231,7 @@ function resetAll(){
 
 // Rat dancing after finishing ;)
 let restartBtn = document.querySelector("#restart-btn");
-let music = new Audio('RatMusic.mp3');
+let music = new Audio('Media/RatMusic.mp3');
 
 restartBtn.addEventListener("click", () => {
     music.pause();
