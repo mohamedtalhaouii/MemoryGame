@@ -213,6 +213,7 @@ resetBtn.onclick = function() {
 }
 
 function resetAll(){
+    moves.textContent = "0";
     for (let i = 0; i < cards.length; i++) {
         cards[i].style.transform = 'rotateY(0)';
         cards[i].children[1].style.backgroundColor = 'var(--card-bg)';
