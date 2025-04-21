@@ -214,7 +214,7 @@ resetBtn.onclick = function() {
     document.querySelector(".controls").classList.add('no-clicking');
     setInterval(() => {
         document.querySelector(".controls").classList.remove('no-clicking');
-    }, 500);
+    }, 5000);
 }
 
 function resetAll(){
