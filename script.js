@@ -131,6 +131,7 @@ for (let i = 0; i < cards.length; i++) {
     cards[i].addEventListener("click", function(){
         cards[i].style.transform = 'rotateY(180deg)';
         flipedCard(cards[i]); // kolma clickina 3la chi carte n3iyto 3la had fonction
+        stopClicking(500);
     })
 }
 
