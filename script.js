@@ -196,8 +196,11 @@ function checkMatches(firstCard, secondCard){
 
 function stopClicking(duration){
     gameBoard.classList.add('no-clicking');
+    // hit class dyal controls madakhlch f class dyal gameBoard
+    document.querySelector(".controls").classList.add('no-clicking');
     setTimeout(() => {
         gameBoard.classList.remove('no-clicking');
+        document.querySelector(".controls").classList.remove('no-clicking');
     }, duration);
 }
 
@@ -210,11 +213,6 @@ function movesCount(){
 // Reset button
 resetBtn.onclick = function() {
     resetAll();
-    // nwa9fo click ta idoro ga3 les cartes
-    document.querySelector(".controls").classList.add('no-clicking');
-    setInterval(() => {
-        document.querySelector(".controls").classList.remove('no-clicking');
-    }, 5000);
 }
 
 function resetAll(){
