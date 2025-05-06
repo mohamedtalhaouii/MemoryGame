@@ -150,12 +150,12 @@ function flipedCard(selectedCard){
 
 //sound of a wrong answer
 function ralat(){
-    let wrong = new Audio("wrong.mp3");
+    let wrong = new Audio("Media/wrong.mp3");
     wrong.play()
 }
 //sound of a right answer
 function sahih(){
-    let right = new Audio("right.mp3");
+    let right = new Audio("Media/right.mp3");
     right.play()
 }
 
