@@ -148,6 +148,16 @@ function flipedCard(selectedCard){
     }
 }
 
+//sound of a wrong answer
+function ralat(){
+    let wrong = new Audio("wrong.mp3");
+    wrong.play()
+}
+//sound of a right answer
+function sahih(){
+    let right = new Audio("right.mp3");
+    right.play()
+}
 
 function checkMatches(firstCard, secondCard){
     movesCount();
@@ -160,6 +170,7 @@ function checkMatches(firstCard, secondCard){
         // les cartes ghaywliw flakhder fach ghaytmatchaw
         firstCard.children[1].style.backgroundColor = 'var(--green)';
         secondCard.children[1].style.backgroundColor = 'var(--green)';
+        sahih();
         
         // n7aydo (is-flipped) hit mab9inach ghan7tajoha
         firstCard.classList.remove('is-flipped');
@@ -175,6 +186,7 @@ function checkMatches(firstCard, secondCard){
         // fach fach maykonoch matchi matchi aywli fla7mer
         firstCard.children[1].style.backgroundColor = 'var(--red)';
         secondCard.children[1].style.backgroundColor = 'var(--red)';
+        ralat();
 
         // nsabro chwiya (1 second) onraj3o les cartes kikano
         setTimeout(() => {
