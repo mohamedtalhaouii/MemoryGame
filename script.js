@@ -222,7 +222,7 @@ function checkMatches(firstCard, secondCard){
                 document.querySelector(".game-over").style.display = 'inline';
                 setTimeout(() => {
                     GameOver.play();
-                }, 50);
+                }, 500);
             }, 200);
         }
     }
