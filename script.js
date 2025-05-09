@@ -48,17 +48,15 @@ const difficile = [
 let musicGame = new Audio("Media/gameMusic.mp3");
 musicGame.loop = true;
 musicGame.volume = 0.04;
-musicGame.autoplay = true;
 
 function restartMusicGame(){
     musicGame.currentTime = 0;
-    musicGame.volume = 0.08;
     musicGame.play();
 }
 
 // Start Screen
 document.querySelector(".start-btn span").onclick = function(){
-    musicGame.volume = 0.08;
+    musicGame.play();
     document.querySelector(".start-btn").remove();
     flipAllCards();
 }
