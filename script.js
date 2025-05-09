@@ -215,11 +215,14 @@ function checkMatches(firstCard, secondCard){
         }, 1000);
 
         wrongCount.textContent++;
-
+        let GameOver = new Audio('Media/GameOver.mp3');
         if (wrongCount.textContent == 5) {
             setTimeout(() => {
                 musicGame.pause();
                 document.querySelector(".game-over").style.display = 'inline';
+                setTimeout(() => {
+                    GameOver.play();
+                }, 50);
             }, 200);
         }
     }
