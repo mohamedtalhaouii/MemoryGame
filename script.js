@@ -45,11 +45,11 @@ const difficile = [
 ];
 
 
-let musicGame = querySelector("#music-game");
-musicGame.loop = true;
-musicGame.volume = 0.04;
+let musicGame = new Audio("Media/gameMusic.mp3");
 
-window.onload = function() {
+window.onload = () => {
+    musicGame.loop = true;
+    musicGame.volume = 0.04;
     musicGame.play();
 };
 
