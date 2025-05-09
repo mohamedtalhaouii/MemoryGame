@@ -220,7 +220,7 @@ function checkMatches(firstCard, secondCard){
             setTimeout(() => {
                 musicGame.pause();
                 document.querySelector(".game-over").style.display = 'inline';
-            }, 400);
+            }, 200);
         }
     }
 }
