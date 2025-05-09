@@ -47,12 +47,12 @@ const difficile = [
 
 let musicGame = new Audio("Media/gameMusic.mp3");
 musicGame.loop = true;
-musicGame.currentTime = 0;
 musicGame.volume = 0.04;
 
-window.onload = () => {
-    musicGame.play();
-};
+
+window.addEventListener("load", function() {
+  musicGame.play();
+}, true);
 
 function restartMusicGame(){
     musicGame.currentTime = 0;
