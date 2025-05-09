@@ -321,3 +321,29 @@ a:hover{
 #restart-btn:hover{
     background-color: #f7de1ec0;
 }
+
+
+.game-over{
+    display: none;
+    text-align: center;
+    align-content: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    background-color: #c734349a;
+}
+
+.game-over img{
+    border-radius: 20px;
+}
+
+.game-over p{
+    position: relative;
+    color: #000;
+    font-weight: 700;
+    font-size: 35px;
+    margin-bottom: 10px;
+}

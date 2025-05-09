@@ -6,6 +6,7 @@ let cardBack = document.querySelector(".card-back");
 let difficulty = document.querySelector("#difficulty");
 let gameBoard = document.querySelector(".game-board");
 let resetBtn = document.querySelector("#reset-btn");
+let wrongCount = document.querySelector("#wrong-count");
 
 const facile = [
     { command: "console.log()", reponse: "Affiche dans la console" },
@@ -42,10 +43,22 @@ const difficile = [
     { command: "let [a, , b]", reponse: "Déstructure un tableau" },
     { command: "function*", reponse: "Crée une fonction génératrice" }
 ];
-  
+
+
+let musicGame = new Audio("Media/gameMusic.mp3");
+musicGame.loop = true;
+musicGame.volume = 0.04;
+musicGame.play();
+
+function restartMusicGame(){
+    musicGame.currentTime = 0;
+    musicGame.volume = 0.08;
+    musicGame.play();
+}
 
 // Start Screen
 document.querySelector(".start-btn span").onclick = function(){
+    musicGame.volume = 0.08;
     document.querySelector(".start-btn").remove();
     flipAllCards();
 }
@@ -149,14 +162,14 @@ function flipedCard(selectedCard){
 }
 
 //sound of a wrong answer
-function ralat(){
+function wrongSound(){
     let wrong = new Audio("Media/wrong.mp3");
-    wrong.play()
+    wrong.play();
 }
 //sound of a right answer
-function sahih(){
+function rightSound(){
     let right = new Audio("Media/right.mp3");
-    right.play()
+    right.play();
 }
 
 function checkMatches(firstCard, secondCard){
@@ -170,7 +183,7 @@ function checkMatches(firstCard, secondCard){
         // les cartes ghaywliw flakhder fach ghaytmatchaw
         firstCard.children[1].style.backgroundColor = 'var(--green)';
         secondCard.children[1].style.backgroundColor = 'var(--green)';
-        sahih();
+        rightSound();
         
         // n7aydo (is-flipped) hit mab9inach ghan7tajoha
         firstCard.classList.remove('is-flipped');
@@ -186,7 +199,7 @@ function checkMatches(firstCard, secondCard){
         // fach fach maykonoch matchi matchi aywli fla7mer
         firstCard.children[1].style.backgroundColor = 'var(--red)';
         secondCard.children[1].style.backgroundColor = 'var(--red)';
-        ralat();
+        wrongSound();
 
         // nsabro chwiya (1 second) onraj3o les cartes kikano
         setTimeout(() => {
@@ -202,6 +215,15 @@ function checkMatches(firstCard, secondCard){
             }, 300);
 
         }, 1000);
+
+        wrongCount.textContent++;
+
+        if (wrongCount.textContent == 5) {
+            setTimeout(() => {
+                musicGame.pause();
+                document.querySelector(".game-over").style.display = 'inline';
+            }, 400);
+        }
     }
 }
 
@@ -229,6 +251,7 @@ resetBtn.onclick = function() {
 
 function resetAll(){
     moves.textContent = "0";
+    wrongCount.textContent = "0";
     matches.textContent = "0";
     for (let i = 0; i < cards.length; i++) {
         cards[i].style.transform = 'rotateY(0)';
@@ -245,20 +268,27 @@ function resetAll(){
 }
 
 // Rat dancing after finishing ;)
-let restartBtn = document.querySelector("#restart-btn");
-let music = new Audio('Media/RatMusic.mp3');
+let restartBtn = document.querySelectorAll("#restart-btn");
+let musicWin = new Audio('Media/RatMusic.mp3');
+musicWin.loop = true;
 
-restartBtn.addEventListener("click", () => {
-    music.pause();
-    document.querySelector(".rat-dancing").style.display = 'none';
-    resetAll();
-})
+
+restartBtn.forEach(restart => {
+    restart.addEventListener("click", () => {
+        musicWin.pause();
+        restartMusicGame();
+        document.querySelector(".rat-dancing").style.display = 'none';
+        document.querySelector(".game-over").style.display = 'none';
+        resetAll();
+    })
+});
 
 function afficheResultat(){
     let isAllMatched = document.querySelectorAll(".card.is-matched");
     if (isAllMatched.length == cards.length) {
+        musicGame.pause();
         setTimeout(() => {
-            music.play();
+            musicWin.play();
             document.querySelector(".rat-dancing").style.display = 'inline';
         }, 200);
     }
