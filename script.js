@@ -45,7 +45,7 @@ const difficile = [
 ];
 
 
-let musicGame = new Audio("Media/gameMusic.mp3");
+let musicGame = querySelector("#music-game");
 musicGame.loop = true;
 musicGame.volume = 0.04;
 
