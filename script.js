@@ -21,27 +21,27 @@ const facile = [
 ];
 
 const intermediaire = [
-    { command: "map()", reponse: "Applique une fonction à chaque élément" },
-    { command: "split()", reponse: "Divise une chaîne en tableau" },
-    { command: "in", reponse: "Vérifie l'existence d'une clé dans un objet" },
-    { command: "Set", reponse: "Crée un ensemble unique" },
-    { command: "filter()", reponse: "Filtre les éléments d'un tableau" },
-    { command: "Math.max()", reponse: "Renvoie le plus grand nombre" },
-    { command: "!!", reponse: "Convertit en booléen" },
-    { command: "charAt()", reponse: "Renvoie un caractère à un index" },
-    { command: "+=", reponse: "Ajoute et affecte à la variable" }
+    { command: "document.querySelector()", reponse: "Sélectionne un élément DOM via un sélecteur CSS" },
+    { command: "document.getElementById()", reponse: "Récupère un élément par son ID" },
+    { command: "document.getElementsByClassName()", reponse: "Récupère des éléments par leur classe" },
+    { command: "document.getElementsByTagName()", reponse: "Récupère des éléments par balise" },
+    { command: "alert()", reponse: "Affiche une alerte" },
+    { command: "alert()", reponse: "Affiche une alerte" },
+    { command: "confirm()", reponse: "Affiche une boîte de confirmation" },
+    { command: "prompt()", reponse: "Demande une saisie à l'utilisateur" },
+    { command: "window.open()", reponse: "Ouvre une nouvelle fenêtre ou un nouvel onglet" }
 ];
   
 const difficile = [
-    { command: "... (spread/rest)", reponse: "Décompose en éléments individuels" },
+    { command: "split()", reponse: "Divise une chaîne en tableau" },
     { command: "()=>{}", reponse: "Crée une fonction fléchée" },
     { command: "Promise", reponse: "Représente une valeur future" },
     { command: "reduce()", reponse: "Réduit un tableau à une valeur" },
-    { command: "Destructuration", reponse: "Extrait des valeurs d'objets ou tableaux" },
-    { command: "`template literals`", reponse: "Crée des chaînes avec interpolation" },
+    { command: "charAt()", reponse: "Renvoie un caractère à un index donné" },
+    { command: "map()", reponse: "Applique une fonction à chaque élément" },
     { command: "find()", reponse: "Trouve le premier élément correspondant" },
-    { command: "let [a, , b]", reponse: "Déstructure un tableau" },
-    { command: "function*", reponse: "Crée une fonction génératrice" }
+    { command: "filter()", reponse: "Filtre les éléments d'un tableau" },
+    { command: "()=>{}", reponse: "Déclare une fonction fléchée" },
 ];
 
 
