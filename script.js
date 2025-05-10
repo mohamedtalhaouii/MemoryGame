@@ -294,6 +294,7 @@ function afficheResultat(){
     if (isAllMatched.length == cards.length) {
         musicGame.pause();
         setTimeout(() => {
+            musicWin.currentTime = 0;
             musicWin.play();
             document.querySelector(".rat-dancing").style.display = 'inline';
         }, 200);
