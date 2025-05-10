@@ -73,7 +73,7 @@ function flipAllCards(){
         cards.forEach(card => {
             card.style.transform = 'rotateY(0deg)';
         });
-    }, 3000);
+    }, 5000);
 }
 
 gameBoardSetup();
