@@ -56,12 +56,12 @@ function restartMusicGame(){
 
 // Start Screen
 document.querySelector(".start-btn span").onclick = function(){
-    musicGame.play();
     document.querySelector(".start-btn").remove();
+    musicGame.play();
     flipAllCards();
 }
 
-// N9albo ga3 les cartes bach ichofhom siyed
+// Retourner toutes les cartes pour que le joueur les voie
 function flipAllCards(){
     stopClicking(3000);
     setTimeout(() => {
@@ -83,7 +83,6 @@ difficulty.onchange = function(){
     for (let i = 0; i < difficulty.options.length; i++) {
         if (difficulty.options[i].selected) {
             resetAll();
-            // ntsnaw ta it9albo les cartes 3ad n3amro les cartes
             setTimeout(() => {
                 gameBoardSetup();
             }, 100);
@@ -94,7 +93,7 @@ difficulty.onchange = function(){
 
 
 function gameBoardSetup() {
-    // N3amro les cartes dylna 3la hsab niveau li khtar siyed
+    // Remplir les cartes pour le niveau choisi
     for (let i = 0; i < difficulty.options.length; i++) {
         if (difficulty.options[i].selected) {
             let selectedLevel;
@@ -116,18 +115,21 @@ function gameBoardSetup() {
     }
 }
 
-// Order dyal les catres
-shuffleOrder(cards);
-
 function shuffleOrder(cards){
-    let cardsOrder = Array.from(Array(cards.length).keys()); // on prend les indices de tableau cards
-    shuffle(cardsOrder); // nkharb9o tartib dyal les cartes
+    // on prend les indices de tableau cards
+    let cardsOrder = Array.from(Array(cards.length).keys()); 
+    // [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
 
+    console.log(cardsOrder);
+    // Melanger l'ordre des cartes
+    shuffle(cardsOrder);
+
+    // applique un ordre aleatoire à chaque carte
     cards.forEach((card, i) => {
         card.style.order = cardsOrder[i];
     });
 }
-// shuffle function khditha mn StackOverFlow :)
+// J'ai pris la fonction shuffle depuis StackOverflow :)
 function shuffle(array) {
     let currentIndex = array.length;
     while (currentIndex != 0) {
@@ -136,70 +138,71 @@ function shuffle(array) {
         [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
     }
 }
+// appel la focntion pour melanger l'ordre des cartes
+shuffleOrder(cards);
 
 // Rotation cardes effect
 for (let i = 0; i < cards.length; i++) {
     cards[i].addEventListener("click", function(){
         cards[i].style.transform = 'rotateY(180deg)';
-        flipedCard(cards[i]); // kolma clickina 3la chi carte n3iyto 3la had fonction
+        flipedCard(cards[i]); // a chaque clic sur une carte, on appelle cette fonction
     })
 }
 
-// had fonction katzid class jdid smito "is-flipped" kolma 9lbna chi carte
+// cette fonction ajoute la classe "is-flipped" a chaque carte retournee
 function flipedCard(selectedCard){
     selectedCard.classList.add('is-flipped');
 
-    // nfiltriw les cartes li fihom "is-flipped" (nakhdohom gha homa)
+    // Filtrer les cartes retournees pour ne garder que celles qui ont la classe "is-flipped"
     let allSelectedCards = Array.from(cards).filter(selectedCard => selectedCard.classList.contains('is-flipped'));
 
-    // nakhdo joj dyal les cartes
+    // on recupere les deux cartes selectionnees
     if (allSelectedCards.length === 2) {
         checkMatches(allSelectedCards[0], allSelectedCards[1]);
         stopClicking(1000);
     }
 }
 
-//sound of a wrong answer
+// sound of a wrong answer
 function wrongSound(){
     let wrong = new Audio("Media/wrong.mp3");
     wrong.play();
 }
-//sound of a right answer
+// sound of a right answer
 function rightSound(){
     let right = new Audio("Media/right.mp3");
     right.play();
 }
 
 function checkMatches(firstCard, secondCard){
-    movesCount();
+    movesCount(); // fonction pour incrementer le nombre de mouvement
     if (firstCard.children[1].getAttribute('value') === secondCard.children[1].getAttribute('value')) {
         matches.textContent++;
-        // color dyal font aywli flabyad
+        // changer la couleur du texte en blanc
         firstCard.children[1].style.color = '#F2F2F7';
         secondCard.children[1].style.color = '#F2F2F7';
 
-        // les cartes ghaywliw flakhder fach ghaytmatchaw
+        // les cartes deviendront vertes lorsqu'elles sont Matches
         firstCard.children[1].style.backgroundColor = 'var(--green)';
         secondCard.children[1].style.backgroundColor = 'var(--green)';
         rightSound();
         
-        // n7aydo (is-flipped) hit mab9inach ghan7tajoha
+        // On supprime la classe "is-flipped" car elle n'est plus necessaire
         firstCard.classList.remove('is-flipped');
         secondCard.classList.remove('is-flipped');
 
-        // nzido hadi bach nkhaliwha f ti9ar (sir chof f css oghatfhem)
+        // Désactive le clic sur les cartes pour qu'elles restent visibles apres match (CSS)
         firstCard.classList.add('is-matched');
         secondCard.classList.add('is-matched');
 
         afficheResultat();
-
     } else {
-        // fach fach maykonoch matchi matchi aywli fla7mer
+        // si les cartes ne correspondent pas, on les colore en rouge
         firstCard.children[1].style.backgroundColor = 'var(--red)';
         secondCard.children[1].style.backgroundColor = 'var(--red)';
         wrongSound();
 
-        // nsabro chwiya (1 second) onraj3o les cartes kikano
+        // attendons 1 seconde avant de retourner les cartes
         setTimeout(() => {
             firstCard.style.transform = 'rotateY(0)';
             secondCard.style.transform = 'rotateY(0)';
@@ -214,9 +217,10 @@ function checkMatches(firstCard, secondCard){
 
         }, 1000);
 
+        // Incremente le nombre d'echecs
         wrongCount.textContent++;
         let GameOver = new Audio('Media/GameOver.mp3');
-        if (wrongCount.textContent == 5) {
+        if (wrongCount.textContent == 15) {
             setTimeout(() => {
                 musicGame.pause();
                 document.querySelector(".game-over").style.display = 'inline';
@@ -230,8 +234,9 @@ function checkMatches(firstCard, secondCard){
 
 
 function stopClicking(duration){
+    // Desactive le clic sur la class de 'gameBoard'
     gameBoard.classList.add('no-clicking');
-    // hit class dyal controls madakhlch f class dyal gameBoard
+    // Desactive le clic sur les 'controles'
     document.querySelector(".controls").classList.add('no-clicking');
     setTimeout(() => {
         gameBoard.classList.remove('no-clicking');
@@ -242,7 +247,7 @@ function stopClicking(duration){
 // Nombres de Mouvements
 function movesCount(){
     moves.textContent++;
-    document.querySelector("#moves-count").textContent = moves.textContent; // bach n2afichwha flakher
+    document.querySelector("#moves-count").textContent = moves.textContent;
 }
 
 // Reset button
@@ -262,7 +267,7 @@ function resetAll(){
         cards[i].classList.remove('is-flipped');
     }
     setTimeout(() => {
-        // kolma 3wdna l'game nb9aw nkharb9o f les cartes o n9albo les cartes bach ichofhom siyed
+        // A chaque redemarrage du jeu, on melange les cartes
         shuffleOrder(cards);
         flipAllCards();
     }, 500);
