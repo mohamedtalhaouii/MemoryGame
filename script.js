@@ -1,3 +1,7 @@
+/* 
+Noms des Binômes : Mohamed Talhaoui & Fatima Boumsahi
+Filière : Informatique et IA (S4) | 2024/2025 
+*/
 let moves = document.querySelector("#moves");
 let matches = document.querySelector("#matches");
 let cards = document.querySelectorAll(".card");
@@ -9,42 +13,43 @@ let resetBtn = document.querySelector("#reset-btn");
 let wrongCount = document.querySelector("#wrong-count");
 
 const facile = [
-    { command: "console.log()", reponse: "Affiche dans la console" },
-    { command: "let", reponse: "Déclare une variable" },
-    { command: "typeof", reponse: "Renvoie le type de la variable" },
-    { command: "length", reponse: "Renvoie la longueur d'une chaîne ou d'un tableau" },
-    { command: "[]", reponse: "Crée un tableau" },
-    { command: "Boolean()", reponse: "Convertit en booléen" },
-    { command: "+", reponse: "Concatène des chaînes" },
-    { command: "-", reponse: "Effectue une soustraction" },
-    { command: "==", reponse: "Compare l'égalité de valeurs" }
+    { command: "console.log()", reponse: "Affiche un message dans la console." },
+    { command: "let", reponse: "Déclare une variable." },
+    { command: "typeof", reponse: "Retourne le type d’une variable." },
+    { command: "length", reponse: "Donne la longueur d’une chaîne ou d’un tableau." },
+    { command: "[]", reponse: "Crée un tableau." },
+    { command: "Boolean()", reponse: "Convertit une valeur en booléen." },
+    { command: "+", reponse: "Additionne ou concatène." },
+    { command: "-", reponse: "Effectue une soustraction." },
+    { command: "==", reponse: "Compare l’égalité de valeurs (sans type)." }
 ];
 
 const intermediaire = [
-    { command: "document.querySelector()", reponse: "Sélectionne un élément DOM via un sélecteur CSS" },
-    { command: "document.getElementById()", reponse: "Récupère un élément par son ID" },
-    { command: "document.getElementsByClassName()", reponse: "Récupère des éléments par leur classe" },
-    { command: "document.getElementsByTagName()", reponse: "Récupère des éléments par balise" },
-    { command: "alert()", reponse: "Affiche une alerte" },
-    { command: "alert()", reponse: "Affiche une alerte" },
-    { command: "confirm()", reponse: "Affiche une boîte de confirmation" },
-    { command: "prompt()", reponse: "Demande une saisie à l'utilisateur" },
-    { command: "window.open()", reponse: "Ouvre une nouvelle fenêtre ou un nouvel onglet" }
+    { command: "querySelector()", reponse: "Cible via un sélecteur CSS." },
+    { command: "getElementById()", reponse: "Cible par ID." },
+    { command: "getElementsByClassName()", reponse: "Cible par classe." },
+    { command: "getElementsByTagName()", reponse: "Cible par balise." },
+    { command: "alert()", reponse: "Message d’alerte." },
+    { command: "confirm()", reponse: "Demande une confirmation." },
+    { command: "prompt()", reponse: "Demande une saisie." },
+    { command: "window.open()", reponse: "Ouvre une nouvelle fenêtre." },
+    { command: "classList", reponse: "Gère les classes CSS." }
 ];
   
 const difficile = [
-    { command: "split()", reponse: "Divise une chaîne en tableau" },
-    { command: "()=>{}", reponse: "Crée une fonction fléchée" },
-    { command: "Promise", reponse: "Représente une valeur future" },
-    { command: "reduce()", reponse: "Réduit un tableau à une valeur" },
-    { command: "charAt()", reponse: "Renvoie un caractère à un index donné" },
-    { command: "map()", reponse: "Applique une fonction à chaque élément" },
-    { command: "find()", reponse: "Trouve le premier élément correspondant" },
-    { command: "filter()", reponse: "Filtre les éléments d'un tableau" },
-    { command: "()=>{}", reponse: "Déclare une fonction fléchée" },
+    { command: "split()", reponse: "Coupe une chaîne." },
+    { command: "() => {}", reponse: "Fonction fléchée." },
+    { command: "Promise", reponse: "Valeur async." },
+    { command: "reduce()", reponse: "Réduit un tableau." },
+    { command: "XMLHttpRequest", reponse: "Requête AJAX native." },
+    { command: "charAt()", reponse: "Caractère à l'index." },
+    { command: "map()", reponse: "Transforme tableau." },
+    { command: "filter()", reponse: "Filtre tableau." },
+    { command: "$()", reponse: "Sélecteur jQuery." }
 ];
 
 
+// Background Music
 let musicGame = new Audio("Media/gameMusic.mp3");
 musicGame.loop = true;
 musicGame.volume = 0.04;
