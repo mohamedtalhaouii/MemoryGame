@@ -40,7 +40,7 @@ document.querySelector(".start-btn span").onclick = function(){
 
 // Retourner toutes les cartes pour que le joueur les voie
 function flipAllCards(){
-    stopClicking(3000);
+    stopClicking(5000);
     setTimeout(() => {
         cards.forEach(card => {
             card.style.transform = 'rotateY(180deg)';
