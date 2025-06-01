@@ -11,43 +11,15 @@ let difficulty = document.querySelector("#difficulty");
 let gameBoard = document.querySelector(".game-board");
 let resetBtn = document.querySelector("#reset-btn");
 let wrongCount = document.querySelector("#wrong-count");
+let data = {};
 
-const facile = [
-    { command: "console.log()", reponse: "Affiche un message dans la console." },
-    { command: "let", reponse: "Déclare une variable." },
-    { command: "typeof", reponse: "Retourne le type d’une variable." },
-    { command: "length", reponse: "Donne la longueur d’une chaîne ou d’un tableau." },
-    { command: "[]", reponse: "Crée un tableau." },
-    { command: "Boolean()", reponse: "Convertit une valeur en booléen." },
-    { command: "+", reponse: "Additionne ou concatène." },
-    { command: "-", reponse: "Effectue une soustraction." },
-    { command: "==", reponse: "Compare l’égalité de valeurs (sans type)." }
-];
-
-const intermediaire = [
-    { command: "querySelector()", reponse: "Cible via un sélecteur CSS." },
-    { command: "getElementById()", reponse: "Cible par ID." },
-    { command: "getElementsByClassName()", reponse: "Cible par classe." },
-    { command: "getElementsByTagName()", reponse: "Cible par balise." },
-    { command: "alert()", reponse: "Message d’alerte." },
-    { command: "confirm()", reponse: "Demande une confirmation." },
-    { command: "prompt()", reponse: "Demande une saisie." },
-    { command: "window.open()", reponse: "Ouvre une nouvelle fenêtre." },
-    { command: "classList", reponse: "Gère les classes CSS." }
-];
-  
-const difficile = [
-    { command: "split()", reponse: "Coupe une chaîne." },
-    { command: "() => {}", reponse: "Fonction fléchée." },
-    { command: "Promise", reponse: "Valeur async." },
-    { command: "reduce()", reponse: "Réduit un tableau." },
-    { command: "XMLHttpRequest", reponse: "Requête AJAX native." },
-    { command: "charAt()", reponse: "Caractère à l'index." },
-    { command: "map()", reponse: "Transforme tableau." },
-    { command: "filter()", reponse: "Filtre tableau." },
-    { command: "$()", reponse: "Sélecteur jQuery." }
-];
-
+fetch('cardsData.json')
+  .then(response => response.json())
+  .then(json => {
+    data = json;
+    gameBoardSetup();
+    shuffleOrder(cards); // appel la focntion pour melanger l'ordre des cartes
+});
 
 // Background Music
 let musicGame = new Audio("Media/gameMusic.mp3");
@@ -81,8 +53,6 @@ function flipAllCards(){
     }, 5000);
 }
 
-gameBoardSetup();
-
 // Niveau de difficulte
 difficulty.onchange = function(){
     for (let i = 0; i < difficulty.options.length; i++) {
@@ -98,24 +68,18 @@ difficulty.onchange = function(){
 
 
 function gameBoardSetup() {
-    // Remplir les cartes pour le niveau choisi
-    for (let i = 0; i < difficulty.options.length; i++) {
-        if (difficulty.options[i].selected) {
-            let selectedLevel;
-            if (difficulty.options[i].value === "facile") {
-                selectedLevel = facile;
-            } else if (difficulty.options[i].value === "intermediaire") {
-                selectedLevel = intermediaire;
-            } else if (difficulty.options[i].value === "difficile") {
-                selectedLevel = difficile;
-            }
-            for (let j = 0; j < cards.length; j++) {
-                if (j % 2 === 0) {
-                    cards[j].children[1].textContent = selectedLevel[j / 2].command;
-                } else {
-                    cards[j].children[1].textContent = selectedLevel[Math.floor(j / 2)].reponse;
-                }
-            }
+    let level = difficulty.value;
+    let selectedLevel = data[level];  // depuis le JSON
+
+    if (!selectedLevel) return;
+
+    for (let j = 0; j < cards.length; j++) {
+        if (j % 2 === 0) {
+            cards[j].children[1].textContent = selectedLevel[j / 2].command;
+            cards[j].children[1].setAttribute('value', selectedLevel[j / 2].command); // ajoute value
+        } else {
+            cards[j].children[1].textContent = selectedLevel[Math.floor(j / 2)].reponse;
+            cards[j].children[1].setAttribute('value', selectedLevel[Math.floor(j / 2)].command); // pour matcher
         }
     }
 }
@@ -143,8 +107,6 @@ function shuffle(array) {
         [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
     }
 }
-// appel la focntion pour melanger l'ordre des cartes
-shuffleOrder(cards);
 
 // Rotation cardes effect
 for (let i = 0; i < cards.length; i++) {

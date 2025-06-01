@@ -1,0 +1,35 @@
+{
+  "facile": [
+    { "command": "console.log()", "reponse": "Affiche un message dans la console." },
+    { "command": "let", "reponse": "Déclare une variable." },
+    { "command": "typeof", "reponse": "Retourne le type d’une variable." },
+    { "command": "length", "reponse": "Donne la longueur d’une chaîne ou d’un tableau." },
+    { "command": "[]", "reponse": "Crée un tableau." },
+    { "command": "Boolean()", "reponse": "Convertit une valeur en booléen." },
+    { "command": "+", "reponse": "Additionne ou concatène." },
+    { "command": "-", "reponse": "Effectue une soustraction." },
+    { "command": "==", "reponse": "Compare l’égalité de valeurs (sans type)." }
+  ],
+  "intermediaire": [
+    { "command": "querySelector()", "reponse": "Cible via un sélecteur CSS." },
+    { "command": "getElementById()", "reponse": "Cible par ID." },
+    { "command": "getElementsByClassName()", "reponse": "Cible par classe." },
+    { "command": "getElementsByTagName()", "reponse": "Cible par balise." },
+    { "command": "alert()", "reponse": "Message d’alerte." },
+    { "command": "confirm()", "reponse": "Demande une confirmation." },
+    { "command": "prompt()", "reponse": "Demande une saisie." },
+    { "command": "window.open()", "reponse": "Ouvre une nouvelle fenêtre." },
+    { "command": "classList", "reponse": "Gère les classes CSS." }
+  ],
+  "difficile": [
+    { "command": "split()", "reponse": "Coupe une chaîne." },
+    { "command": "() => {}", "reponse": "Fonction fléchée." },
+    { "command": "Promise", "reponse": "Valeur async." },
+    { "command": "reduce()", "reponse": "Réduit un tableau." },
+    { "command": "XMLHttpRequest", "reponse": "Requête AJAX native." },
+    { "command": "charAt()", "reponse": "Caractère à l'index." },
+    { "command": "map()", "reponse": "Transforme tableau." },
+    { "command": "filter()", "reponse": "Filtre tableau." },
+    { "command": "$()", "reponse": "Sélecteur jQuery." }
+  ]
+}
