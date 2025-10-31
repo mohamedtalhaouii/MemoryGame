@@ -1,5 +1,5 @@
 /* 
-Noms des Binômes : Mohamed Talhaoui & Fatima Boumsahi
+Nom : Mohamed Talhaoui
 Filière : Informatique et IA (S4) | 2024/2025 
 */
 let moves = document.querySelector("#moves");
@@ -266,4 +266,5 @@ function afficheResultat(){
             document.querySelector(".rat-dancing").style.display = 'inline';
         }, 200);
     }
+
 }
