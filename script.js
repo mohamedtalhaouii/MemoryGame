@@ -22,7 +22,7 @@ fetch('cardsData.json')
 });
 
 // Background Music
-let musicGame = new Audio("Media/audio/GameMusic.mp3");
+let musicGame = new Audio("Media/audio/gameMusic.mp3");
 musicGame.loop = true;
 musicGame.volume = 0.04;
 
