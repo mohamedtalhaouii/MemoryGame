@@ -22,7 +22,7 @@ fetch('cardsData.json')
 });
 
 // Background Music
-let musicGame = new Audio("Media/gameMusic.mp3");
+let musicGame = new Audio("Media/audio/GameMusic.mp3");
 musicGame.loop = true;
 musicGame.volume = 0.04;
 
@@ -132,12 +132,12 @@ function flipedCard(selectedCard){
 
 // sound of a wrong answer
 function wrongSound(){
-    let wrong = new Audio("Media/wrong.mp3");
+    let wrong = new Audio("Media/audio/wrong.mp3");
     wrong.play();
 }
 // sound of a right answer
 function rightSound(){
-    let right = new Audio("Media/right.mp3");
+    let right = new Audio("Media/audio/right.mp3");
     right.play();
 }
 
@@ -186,7 +186,7 @@ function checkMatches(firstCard, secondCard){
 
         // Incremente le nombre d'echecs
         wrongCount.textContent++;
-        let GameOver = new Audio('Media/GameOver.mp3');
+        let GameOver = new Audio('Media/audio/GameOver.mp3');
         if (wrongCount.textContent == 15) {
             setTimeout(() => {
                 musicGame.pause();
@@ -242,7 +242,7 @@ function resetAll(){
 
 // Rat dancing after finishing ;)
 let restartBtn = document.querySelectorAll("#restart-btn");
-let musicWin = new Audio('Media/RatMusic.mp3');
+let musicWin = new Audio('Media/audio/RatMusic.mp3');
 musicWin.loop = true;
 
 
